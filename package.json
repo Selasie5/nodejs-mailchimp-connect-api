@@ -4,14 +4,20 @@
   "description": "MailChimp Connect API",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha"
   },
   "author": "",
   "license": "ISC",
+
+"type": "commonjs",
   "dependencies": {
     "@mailchimp/mailchimp_marketing": "^3.0.80",
     "body-parser": "^1.20.2",
     "dotenv": "^16.4.5",
     "express": "^4.19.2"
+  },
+  "devDependencies": {
+    "chai": "^5.1.1",
+    "mocha": "^10.4.0"
   }
 }

@@ -10,6 +10,13 @@ const mailchimpService = require("./mailchimpService")
         });
     }
     const subscriptionResult = await mailchimpService.subscribeUser(email);
-    res.json(subscriptionResult);
+    if(subscriptionResult.success)
+        {
+            return res.status(200).json(subscriptionResult);
+        }
+        else{
+            return res.status(500).json(subscriptionResult);
+        }
+    // res.json(subscriptionResult);
  }
  module.exports = {handleWaitlistConfirmation};
