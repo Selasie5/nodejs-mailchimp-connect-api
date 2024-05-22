@@ -1,29 +1,29 @@
 const express = require("express");
 const app = express();
-const mailchimp = require("@mailchimp/mailchimp_marketing")
+const mailchimp = require("@mailchimp/mailchimp_marketing");
 require('dotenv').config();
 const port = process.env.PORT || 4000;
-const bodyParser = require("body-parser")
-const {handleWaitlistConfirmation} = require("./routes");
-//Middleware to handle parsing the request body
-app.use(bodyParser.urlencoded({
-    extended:true
-}));
+const bodyParser = require("body-parser");
+const { handleWaitlistConfirmation } = require("./routes");
 
-app.post("/waitlist-confirm",handleWaitlistConfirmation);
-//confirming that MailChimp is working effectively 
-async function run()
-{
+// Middleware to handle parsing the request body
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json()); // Add this to parse JSON body
+
+app.post("/waitlist-confirm", handleWaitlistConfirmation);
+
+// Confirming that Mailchimp is working effectively
+async function run() {
     try {
-        const response= await mailchimp.ping.get();
+        const response = await mailchimp.ping.get();
         console.log(response);
         console.log("Mailchimp is successfully running");
     } catch (error) {
-        console.log(error)
+        console.log(error);
     }
 }
-app.listen(port, ()=>
-{
+
+app.listen(port, () => {
     console.log(`Server has started on port ${port}`);
     run();
-})
+});

@@ -1,23 +1,25 @@
-const mailchimp = require("@mailchimp/mailchimp_marketing")
-//Configure mailchimp
+const mailchimp = require("@mailchimp/mailchimp_marketing");
+
+// Configure mailchimp
 mailchimp.setConfig({
     apiKey: process.env.MAILCHIMP_API_KEY,
     server: process.env.MAILCHIMP_SERVER_KEY,
-})
+});
+
 const listID = process.env.MAILCHIMP_AUDIENCE_ID;
 
-async function subscribeUser(email){
+async function subscribeUser(email) {
     try {
-        const response = await mailchimp.lists.addListMember(listID,{
+        const response = await mailchimp.lists.addListMember(listID, {
             email_address: email,
-            status: "subscribed"
+            status: "subscribed",
         });
-        console.log(`Successfully added contact with ID ${reponse.id}`);
-        return {success: true, message: "Successfully subscribed to the list"};
+        console.log(`Successfully added contact with ID ${response.id}`);
+        return { success: true, message: "Successfully subscribed to the list" };
     } catch (error) {
-        console.error("Error suscribing user:", error);
-        return {success: false, message:"Failed to subscribe to the list.Please try again later"};
+        console.error("Error subscribing user:", error.response ? error.response.body : error.message);
+        return { success: false, message: "Failed to subscribe to the list. Please try again later" };
     }
 }
 
-module.exports = {subscribeUser};
+module.exports = { subscribeUser };
