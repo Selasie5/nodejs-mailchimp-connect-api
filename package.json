@@ -4,6 +4,7 @@
   "description": "MailChimp Connect API",
   "main": "index.js",
   "scripts": {
+    "start": "node app.js",
     "test": "mocha"
   },
   "author": "",
