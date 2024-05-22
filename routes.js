@@ -1,4 +1,28 @@
- const mailchimpService = require("./mailchimpService")
+
+/**
+ * @swagger
+ * /waitlist-confirm:
+ *   post:
+ *     summary: Confirm waitlist subscription
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               email:
+ *                 type: string
+ *                 example: "selasisepenu5@gmail.com"
+ *     responses:
+ *       200:
+ *         description: Successfully subscribed
+ *       400:
+ *         description: Email is required
+ *       500:
+ *         description: Failed to subscribe to the list
+ */
+const mailchimpService = require("./mailchimpService")
 async function handleWaitlistConfirmation(req, res) {
     console.log("Request body:", req.body);
     const { email } = req.body; // Destructure email from req.body

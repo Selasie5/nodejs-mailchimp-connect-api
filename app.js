@@ -5,6 +5,7 @@ require('dotenv').config();
 const port = process.env.PORT || 4000;
 const bodyParser = require("body-parser");
 const { handleWaitlistConfirmation } = require("./routes");
+const swaggerSetup = require("./swagger")
 
 // Middleware to handle parsing the request body
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -23,6 +24,7 @@ async function run() {
     }
 }
 
+swaggerSetup(app);
 app.listen(port, () => {
     console.log(`Server has started on port ${port}`);
     run();
