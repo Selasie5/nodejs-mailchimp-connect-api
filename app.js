@@ -12,6 +12,10 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json()); // Add this to parse JSON body
 
 app.post("/waitlist-confirm", handleWaitlistConfirmation);
+app.get("/",(req,res)=>
+{
+    res.send("hello World")
+})
 
 // Confirming that Mailchimp is working effectively
 async function run() {
