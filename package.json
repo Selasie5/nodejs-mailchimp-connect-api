@@ -2,7 +2,7 @@
   "name": "nodejs-mailchimp-api",
   "version": "1.0.0",
   "description": "MailChimp Connect API",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
     "start": "node app.js",
     "test": "mocha"
