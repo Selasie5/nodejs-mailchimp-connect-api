@@ -6,7 +6,7 @@ const options = {
         openapi: "3.0.0",
         servers:[
             {
-                url: "https://obscure-bayou-70531-89c434274098.herokuapp.com/"
+                url: "https://obscure-bayou-70531-89c434274098.herokuapp.com"
             },
         ],
         info:
