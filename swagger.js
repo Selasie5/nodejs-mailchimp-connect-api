@@ -4,6 +4,11 @@ const swaggerUi = require("swagger-ui-express");
 const options = {
     definition:{
         openapi: "3.0.0",
+        servers:[
+            {
+                url: "http://localhost:4000/"
+            },
+        ],
         info:
         {
             title: 'Afrovivo API',
@@ -16,5 +21,5 @@ const options = {
 const specs = swaggerJsdoc(options);
 module.exports = (app)=>
     {
-        app.use('./api-docs', swaggerUi.serve, swaggerUi.setup(specs))
+        app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(specs))
     }

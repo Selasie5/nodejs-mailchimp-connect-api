@@ -14,7 +14,7 @@ app.use(bodyParser.json()); // Add this to parse JSON body
 app.post("/waitlist-confirm", handleWaitlistConfirmation);
 app.get("/",(req,res)=>
 {
-    res.send("hello World")
+    res.send("Welcome to The Mailchimp Connect API")
 })
 
 // Confirming that Mailchimp is working effectively

@@ -13,7 +13,7 @@
  *             properties:
  *               email:
  *                 type: string
- *                 example: "selasisepenu5@gmail.com"
+ *                 example: "test@emailProvider.com"
  *     responses:
  *       200:
  *         description: Successfully subscribed
